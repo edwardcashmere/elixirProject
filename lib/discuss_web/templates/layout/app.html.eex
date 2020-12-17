@@ -17,9 +17,13 @@
       <a href="/" class="brand-logo">Discussions</a>
       <ul class="right">
         <%= if @conn.assigns[:user] do %>
-          <li>Logout</li>
+          <li>
+              <%= link "LogOut", to: Routes.auth_path(@conn, :signout)%>
+          </li>
         <% else %>
-          <%= link "Github sign in", to: Routes.auth_path(@conn, :request, "github")%>
+        <li>
+            <%= link "Github sign in", to: Routes.auth_path(@conn, :request, "github")%>
+        </li>
 
         <%end %>
       </ul>
